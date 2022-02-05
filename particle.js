@@ -7,7 +7,7 @@ class Particle
         this.velocity = createVector(0, 0);
         this.mass = 1;
         this.locked = false;
-        // this.gravity
+        this.gravity = 0.1;
     }
 
     applyForce(force)
@@ -23,9 +23,13 @@ class Particle
         {
             // this.applyForce(createVector(1, 1));
             this.velocity.mult(0.96);
+            this.acceleration.mult(this.gravity);
             this.velocity.add(this.acceleration);
             this.position.add(this.velocity);
             this.acceleration.mult(0);
+        }
+        if (this.position.y > height) {
+            this.position.y = height;
         }
     }
 
@@ -34,6 +38,6 @@ class Particle
         stroke(255);
         strokeWeight(1);
         fill(155, 70, 90);
-//         ellipse(this.position.x, this.position.y, 5);
+        ellipse(this.position.x, this.position.y, 5);
     }
 }
