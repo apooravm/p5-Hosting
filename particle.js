@@ -34,6 +34,6 @@ class Particle
         stroke(255);
         strokeWeight(1);
         fill(155, 70, 90);
-        ellipse(this.position.x, this.position.y, 5);
+//         ellipse(this.position.x, this.position.y, 5);
     }
 }
