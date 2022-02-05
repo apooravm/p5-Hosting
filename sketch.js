@@ -7,7 +7,7 @@ let spring3;
 
 let bobs = [];
 let springs = [];
-let spacing = 20;
+let spacing = 1;
 
 
 let k = 0.1;
@@ -22,7 +22,7 @@ function setup() {
   // spring2 = new Spring(k, restLength, bob2, bob3);
   // // spring3 = new Spring(k, restLength, bob3, bob2);
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 200; i++) {
     bobs[i] = new Particle(200, i*spacing);
     if (i != 0) {
       let a = bobs[i];
