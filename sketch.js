@@ -7,10 +7,11 @@ let spring3;
 
 let bobs = [];
 let springs = [];
-let spacing = 1;
+let spacing = 10;
+let gravity;
 
 
-let k = 0.1;
+let k = 0.3;
 let restLength = 300;
 
 function setup() {
@@ -22,7 +23,7 @@ function setup() {
   // spring2 = new Spring(k, restLength, bob2, bob3);
   // // spring3 = new Spring(k, restLength, bob3, bob2);
 
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 50; i++) {
     bobs[i] = new Particle(200, i*spacing);
     if (i != 0) {
       let a = bobs[i];
@@ -35,6 +36,8 @@ function setup() {
 
   bobs[0].locked = true;
   // bobs[bobs.length-1].locked = true;
+
+  gravity = createVector(0, 0.3);
 }
 
 function draw() {
@@ -67,6 +70,7 @@ function draw() {
   }
 
   for (let bob of bobs) {
+    bob.applyForce(gravity);
     bob.update();
     bob.show();
   }
